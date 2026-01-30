@@ -1,0 +1,13 @@
+syntax = "proto3";
+package album;
+
+message User {
+  string id = 1;
+  string name = 2;
+  string avatar = 3;
+}
+
+enum UserFrom {
+  NONE = 0;
+  VENUS = 1;
+}
