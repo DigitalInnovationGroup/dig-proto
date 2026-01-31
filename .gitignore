@@ -1,1 +1,19 @@
-.idea
+/.idea/
+
+# Note: Generated proto files ARE committed to git
+# This allows consumers to use the library without running build.sh
+# Only build artifacts are ignored
+
+# Rust
+/target/
+Cargo.lock
+
+# Dart/Flutter
+.dart_tool/
+.packages
+pubspec.lock
+build/
+
+# IDE
+.vscode/
+*.iml

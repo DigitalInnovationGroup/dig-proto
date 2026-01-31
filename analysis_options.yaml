@@ -1,0 +1,12 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - lib/src/**/*.pb.dart
+    - lib/src/**/*.pbenum.dart
+    - lib/src/**/*.pbjson.dart
+    - dart/**
+
+linter:
+  rules:
+    - avoid_print

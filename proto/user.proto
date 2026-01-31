@@ -1,5 +1,5 @@
 syntax = "proto3";
-package album;
+package user;
 
 message User {
   string id = 1;
