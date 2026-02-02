@@ -31,7 +31,7 @@ fn main() {
         .format(true)
         .out_dir(out_dir)
         .type_attribute(".", "#[derive(serde::Serialize, serde::Deserialize)]")
-        .type_attribute(".", "#[derive(dig_proto_macros::FromRequest)]")
+        .type_attribute(".", "#[derive(rust_macros::FromRequest)]")
         .compile_protos(
             &files.iter().map(|p| p.as_path()).collect::<Vec<_>>(),
             &[proto_dir],

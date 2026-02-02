@@ -13,9 +13,6 @@ pub mod ext;
 // Re-export commonly used types for convenience
 pub use proto::*;
 
-// Re-export macros
-pub use dig_proto_macros::FromRequest;
-
 // Tests
 #[cfg(test)]
 mod tests;

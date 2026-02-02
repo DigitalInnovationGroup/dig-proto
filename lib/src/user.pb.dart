@@ -23,11 +23,13 @@ class User extends $pb.GeneratedMessage {
     $core.String? id,
     $core.String? name,
     $core.String? avatar,
+    $core.String? session,
   }) {
     final result = create();
     if (id != null) result.id = id;
     if (name != null) result.name = name;
     if (avatar != null) result.avatar = avatar;
+    if (session != null) result.session = session;
     return result;
   }
 
@@ -47,6 +49,7 @@ class User extends $pb.GeneratedMessage {
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'avatar')
+    ..aOS(4, _omitFieldNames ? '' : 'session')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -93,6 +96,15 @@ class User extends $pb.GeneratedMessage {
   $core.bool hasAvatar() => $_has(2);
   @$pb.TagNumber(3)
   void clearAvatar() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get session => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set session($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasSession() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearSession() => $_clearField(4);
 }
 
 const $core.bool _omitFieldNames =
