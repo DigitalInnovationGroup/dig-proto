@@ -52,6 +52,60 @@ if command -v protoc-gen-dart &> /dev/null; then
     protoc --dart_out="$DART_LIB_DIR" --proto_path="$PROTO_DIR" $PROTO_FILES
     DART_COUNT=$(ls "$DART_LIB_DIR"/*.dart 2>/dev/null | wc -l | tr -d ' ')
     echo -e "${GREEN}✓ Dart: ${DART_COUNT} files generated${NC}"
+
+    # === Generate re-exports in lib/dig_proto.dart ===
+    echo -e "${YELLOW}📦 Generating re-exports...${NC}"
+    MAIN_LIB="lib/dig_proto.dart"
+
+    cat > "$MAIN_LIB" << 'EOF'
+/// Dig Project Protocol Buffer Definitions
+///
+/// This library contains auto-generated Protocol Buffer message definitions
+/// for the Dig project.
+///
+/// ## Usage
+///
+/// Add this to your `pubspec.yaml`:
+///
+/// ```yaml
+/// dependencies:
+///   dig_proto:
+///     path: ../dig-proto
+/// ```
+///
+/// Then in your code:
+///
+/// ```dart
+/// import 'package:dig_proto/dig_proto.dart';
+///
+/// void main() {
+///   final user = User()
+///     ..id = 'user-id'
+///     ..name = 'John Doe';
+/// }
+/// ```
+
+library;
+
+// Export generated proto files
+EOF
+
+    # Add exports for all .pb.dart files (sorted alphabetically)
+    for file in $(ls "$DART_LIB_DIR"/*.pb.dart 2>/dev/null | sort); do
+        basename=$(basename "$file")
+        echo "export 'src/$basename';" >> "$MAIN_LIB"
+    done
+
+    # Add re-exports of protobuf dependencies
+    cat >> "$MAIN_LIB" << 'EOF'
+
+// Re-export protobuf dependencies for convenience
+export 'package:fixnum/fixnum.dart' show Int64;
+export 'package:protobuf/protobuf.dart';
+EOF
+
+    EXPORT_COUNT=$(grep -c "^export 'src/" "$MAIN_LIB" 2>/dev/null || echo 0)
+    echo -e "${GREEN}✓ Re-exports: ${EXPORT_COUNT} proto files exported in ${MAIN_LIB}${NC}"
 else
     echo -e "${RED}Warning: protoc-gen-dart not found${NC}"
     echo "Install: dart pub global activate protoc_plugin"

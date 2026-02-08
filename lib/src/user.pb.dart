@@ -14,6 +14,8 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'user.pbenum.dart';
+
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'user.pbenum.dart';
@@ -24,12 +26,14 @@ class User extends $pb.GeneratedMessage {
     $core.String? name,
     $core.String? avatar,
     $core.String? session,
+    UserFrom? from,
   }) {
     final result = create();
     if (id != null) result.id = id;
     if (name != null) result.name = name;
     if (avatar != null) result.avatar = avatar;
     if (session != null) result.session = session;
+    if (from != null) result.from = from;
     return result;
   }
 
@@ -50,6 +54,8 @@ class User extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'avatar')
     ..aOS(4, _omitFieldNames ? '' : 'session')
+    ..aE<UserFrom>(5, _omitFieldNames ? '' : 'from',
+        enumValues: UserFrom.values)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -105,6 +111,15 @@ class User extends $pb.GeneratedMessage {
   $core.bool hasSession() => $_has(3);
   @$pb.TagNumber(4)
   void clearSession() => $_clearField(4);
+
+  @$pb.TagNumber(5)
+  UserFrom get from => $_getN(4);
+  @$pb.TagNumber(5)
+  set from(UserFrom value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasFrom() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearFrom() => $_clearField(5);
 }
 
 const $core.bool _omitFieldNames =

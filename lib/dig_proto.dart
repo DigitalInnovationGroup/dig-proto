@@ -28,6 +28,9 @@
 library;
 
 // Export generated proto files
+export 'src/comment.pb.dart';
+export 'src/request.pb.dart';
+export 'src/response.pb.dart';
 export 'src/user.pb.dart';
 
 // Re-export protobuf dependencies for convenience

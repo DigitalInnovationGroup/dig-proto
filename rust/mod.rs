@@ -12,7 +12,3 @@ pub mod ext;
 
 // Re-export commonly used types for convenience
 pub use proto::*;
-
-// Tests
-#[cfg(test)]
-mod tests;

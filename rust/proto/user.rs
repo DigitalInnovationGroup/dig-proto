@@ -11,6 +11,8 @@ pub struct User {
     pub avatar: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
     pub session: ::prost::alloc::string::String,
+    #[prost(enumeration = "UserFrom", tag = "5")]
+    pub from: i32,
 }
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(rust_macros::FromRequest)]

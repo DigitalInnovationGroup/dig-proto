@@ -1,0 +1,18 @@
+syntax = "proto3";
+package response;
+
+import "user.proto";
+
+message Ack {
+  uint32 code = 1;
+  optional string detail = 2;
+}
+
+message Response {
+  int32 code = 1;
+  int32 detail = 2;
+
+  oneof payload {
+    user.User user = 3;
+  }
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+package comment;
+
+import "user.proto";
+
+message Comment {
+  string resource = 1;
+  string id = 2;
+  optional string parent = 3;
+  string body = 4;
+  user.User user = 5;
+}

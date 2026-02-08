@@ -1,0 +1,23 @@
+syntax = "proto3";
+package request;
+
+import "user.proto";
+import "comment.proto";
+
+message Request {
+  user.User user = 1;
+  string lng = 2;
+  string ua = 4;
+  RequestKind kind = 5;
+
+  oneof payload {
+    comment.Comment CommentRequest = 6;
+  }
+}
+
+enum RequestKind {
+  NONE = 0;
+  COMMENT_ADD = 1;
+  COMMENT_EDIT = 2;
+  COMMENT_DELETE = 3;
+}
