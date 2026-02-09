@@ -10,22 +10,24 @@ pub struct Ack {
 }
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(rust_macros::FromRequest)]
-#[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
+#[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Response {
     #[prost(int32, tag = "1")]
     pub code: i32,
     #[prost(int32, tag = "2")]
     pub detail: i32,
-    #[prost(oneof = "response::Payload", tags = "3")]
+    #[prost(oneof = "response::Payload", tags = "3, 4")]
     pub payload: ::core::option::Option<response::Payload>,
 }
 /// Nested message and enum types in `Response`.
 pub mod response {
     #[derive(serde::Serialize, serde::Deserialize)]
     #[derive(rust_macros::FromRequest)]
-    #[derive(Clone, PartialEq, Eq, Hash, ::prost::Oneof)]
+    #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Payload {
         #[prost(message, tag = "3")]
         User(super::super::user::User),
+        #[prost(message, tag = "4")]
+        CommentList(super::super::comment::CommentList),
     }
 }

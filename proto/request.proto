@@ -12,6 +12,7 @@ message Request {
 
   oneof payload {
     comment.Comment CommentRequest = 6;
+    comment.CommentList CommentListRequest = 7;
   }
 }
 
@@ -20,4 +21,5 @@ enum RequestKind {
   COMMENT_ADD = 1;
   COMMENT_EDIT = 2;
   COMMENT_DELETE = 3;
+  COMMENT_LIST = 4;
 }

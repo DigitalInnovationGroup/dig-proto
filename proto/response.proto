@@ -2,6 +2,7 @@ syntax = "proto3";
 package response;
 
 import "user.proto";
+import "comment.proto";
 
 message Ack {
   uint32 code = 1;
@@ -14,5 +15,6 @@ message Response {
 
   oneof payload {
     user.User user = 3;
+    comment.CommentList comment_list = 4;
   }
 }

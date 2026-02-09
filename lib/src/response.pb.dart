@@ -14,6 +14,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'comment.pb.dart' as $1;
 import 'user.pb.dart' as $0;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
@@ -83,18 +84,20 @@ class Ack extends $pb.GeneratedMessage {
   void clearDetail() => $_clearField(2);
 }
 
-enum Response_Payload { user, notSet }
+enum Response_Payload { user, commentList, notSet }
 
 class Response extends $pb.GeneratedMessage {
   factory Response({
     $core.int? code,
     $core.int? detail,
     $0.User? user,
+    $1.CommentList? commentList,
   }) {
     final result = create();
     if (code != null) result.code = code;
     if (detail != null) result.detail = detail;
     if (user != null) result.user = user;
+    if (commentList != null) result.commentList = commentList;
     return result;
   }
 
@@ -109,16 +112,19 @@ class Response extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, Response_Payload> _Response_PayloadByTag = {
     3: Response_Payload.user,
+    4: Response_Payload.commentList,
     0: Response_Payload.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'Response',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'response'),
       createEmptyInstance: create)
-    ..oo(0, [3])
+    ..oo(0, [3, 4])
     ..aI(1, _omitFieldNames ? '' : 'code')
     ..aI(2, _omitFieldNames ? '' : 'detail')
     ..aOM<$0.User>(3, _omitFieldNames ? '' : 'user', subBuilder: $0.User.create)
+    ..aOM<$1.CommentList>(4, _omitFieldNames ? '' : 'commentList',
+        subBuilder: $1.CommentList.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -140,8 +146,10 @@ class Response extends $pb.GeneratedMessage {
   static Response? _defaultInstance;
 
   @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
   Response_Payload whichPayload() => _Response_PayloadByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(3)
+  @$pb.TagNumber(4)
   void clearPayload() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -172,6 +180,17 @@ class Response extends $pb.GeneratedMessage {
   void clearUser() => $_clearField(3);
   @$pb.TagNumber(3)
   $0.User ensureUser() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $1.CommentList get commentList => $_getN(3);
+  @$pb.TagNumber(4)
+  set commentList($1.CommentList value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasCommentList() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCommentList() => $_clearField(4);
+  @$pb.TagNumber(4)
+  $1.CommentList ensureCommentList() => $_ensure(3);
 }
 
 const $core.bool _omitFieldNames =

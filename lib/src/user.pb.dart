@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'user.pbenum.dart';
@@ -22,7 +23,7 @@ export 'user.pbenum.dart';
 
 class User extends $pb.GeneratedMessage {
   factory User({
-    $core.String? id,
+    $fixnum.Int64? id,
     $core.String? name,
     $core.String? avatar,
     $core.String? session,
@@ -50,7 +51,7 @@ class User extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'User',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aInt64(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'avatar')
     ..aOS(4, _omitFieldNames ? '' : 'session')
@@ -77,9 +78,9 @@ class User extends $pb.GeneratedMessage {
   static User? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $fixnum.Int64 get id => $_getI64(0);
   @$pb.TagNumber(1)
-  set id($core.String value) => $_setString(0, value);
+  set id($fixnum.Int64 value) => $_setInt64(0, value);
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)

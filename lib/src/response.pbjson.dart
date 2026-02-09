@@ -47,6 +47,15 @@ const Response$json = {
       '9': 0,
       '10': 'user'
     },
+    {
+      '1': 'comment_list',
+      '3': 4,
+      '4': 1,
+      '5': 11,
+      '6': '.comment.CommentList',
+      '9': 0,
+      '10': 'commentList'
+    },
   ],
   '8': [
     {'1': 'payload'},
@@ -56,4 +65,5 @@ const Response$json = {
 /// Descriptor for `Response`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List responseDescriptor = $convert.base64Decode(
     'CghSZXNwb25zZRISCgRjb2RlGAEgASgFUgRjb2RlEhYKBmRldGFpbBgCIAEoBVIGZGV0YWlsEi'
-    'AKBHVzZXIYAyABKAsyCi51c2VyLlVzZXJIAFIEdXNlckIJCgdwYXlsb2Fk');
+    'AKBHVzZXIYAyABKAsyCi51c2VyLlVzZXJIAFIEdXNlchI5Cgxjb21tZW50X2xpc3QYBCABKAsy'
+    'FC5jb21tZW50LkNvbW1lbnRMaXN0SABSC2NvbW1lbnRMaXN0QgkKB3BheWxvYWQ=');

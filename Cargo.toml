@@ -15,7 +15,7 @@ prost = "0.14.3"
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.149"
 chrono = "0.4.43"
-rust_macros = { path = "./../rust-macro" }
+rust-macros = { path = "./../rust-macros" }
 http = "1.2"
 http-body = "1.0"
 http-body-util = "0.1"

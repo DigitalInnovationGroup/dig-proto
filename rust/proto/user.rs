@@ -3,8 +3,8 @@
 #[derive(rust_macros::FromRequest)]
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct User {
-    #[prost(string, tag = "1")]
-    pub id: ::prost::alloc::string::String,
+    #[prost(int64, tag = "1")]
+    pub id: i64,
     #[prost(string, tag = "2")]
     pub name: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]

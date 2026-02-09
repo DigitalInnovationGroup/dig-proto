@@ -22,7 +22,7 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'request.pbenum.dart';
 
-enum Request_Payload { commentRequest, notSet }
+enum Request_Payload { commentRequest, commentListRequest, notSet }
 
 class Request extends $pb.GeneratedMessage {
   factory Request({
@@ -31,6 +31,7 @@ class Request extends $pb.GeneratedMessage {
     $core.String? ua,
     RequestKind? kind,
     $1.Comment? commentRequest,
+    $1.CommentList? commentListRequest,
   }) {
     final result = create();
     if (user != null) result.user = user;
@@ -38,6 +39,8 @@ class Request extends $pb.GeneratedMessage {
     if (ua != null) result.ua = ua;
     if (kind != null) result.kind = kind;
     if (commentRequest != null) result.commentRequest = commentRequest;
+    if (commentListRequest != null)
+      result.commentListRequest = commentListRequest;
     return result;
   }
 
@@ -52,13 +55,14 @@ class Request extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, Request_Payload> _Request_PayloadByTag = {
     6: Request_Payload.commentRequest,
+    7: Request_Payload.commentListRequest,
     0: Request_Payload.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'Request',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'request'),
       createEmptyInstance: create)
-    ..oo(0, [6])
+    ..oo(0, [6, 7])
     ..aOM<$0.User>(1, _omitFieldNames ? '' : 'user', subBuilder: $0.User.create)
     ..aOS(2, _omitFieldNames ? '' : 'lng')
     ..aOS(4, _omitFieldNames ? '' : 'ua')
@@ -66,6 +70,8 @@ class Request extends $pb.GeneratedMessage {
         enumValues: RequestKind.values)
     ..aOM<$1.Comment>(6, _omitFieldNames ? '' : 'CommentRequest',
         protoName: 'CommentRequest', subBuilder: $1.Comment.create)
+    ..aOM<$1.CommentList>(7, _omitFieldNames ? '' : 'CommentListRequest',
+        protoName: 'CommentListRequest', subBuilder: $1.CommentList.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -87,8 +93,10 @@ class Request extends $pb.GeneratedMessage {
   static Request? _defaultInstance;
 
   @$pb.TagNumber(6)
+  @$pb.TagNumber(7)
   Request_Payload whichPayload() => _Request_PayloadByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(6)
+  @$pb.TagNumber(7)
   void clearPayload() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
@@ -139,6 +147,17 @@ class Request extends $pb.GeneratedMessage {
   void clearCommentRequest() => $_clearField(6);
   @$pb.TagNumber(6)
   $1.Comment ensureCommentRequest() => $_ensure(4);
+
+  @$pb.TagNumber(7)
+  $1.CommentList get commentListRequest => $_getN(5);
+  @$pb.TagNumber(7)
+  set commentListRequest($1.CommentList value) => $_setField(7, value);
+  @$pb.TagNumber(7)
+  $core.bool hasCommentListRequest() => $_has(5);
+  @$pb.TagNumber(7)
+  void clearCommentListRequest() => $_clearField(7);
+  @$pb.TagNumber(7)
+  $1.CommentList ensureCommentListRequest() => $_ensure(5);
 }
 
 const $core.bool _omitFieldNames =

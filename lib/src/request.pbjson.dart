@@ -23,13 +23,14 @@ const RequestKind$json = {
     {'1': 'COMMENT_ADD', '2': 1},
     {'1': 'COMMENT_EDIT', '2': 2},
     {'1': 'COMMENT_DELETE', '2': 3},
+    {'1': 'COMMENT_LIST', '2': 4},
   ],
 };
 
 /// Descriptor for `RequestKind`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List requestKindDescriptor = $convert.base64Decode(
     'CgtSZXF1ZXN0S2luZBIICgROT05FEAASDwoLQ09NTUVOVF9BREQQARIQCgxDT01NRU5UX0VESV'
-    'QQAhISCg5DT01NRU5UX0RFTEVURRAD');
+    'QQAhISCg5DT01NRU5UX0RFTEVURRADEhAKDENPTU1FTlRfTElTVBAE');
 
 @$core.Deprecated('Use requestDescriptor instead')
 const Request$json = {
@@ -55,6 +56,15 @@ const Request$json = {
       '9': 0,
       '10': 'CommentRequest'
     },
+    {
+      '1': 'CommentListRequest',
+      '3': 7,
+      '4': 1,
+      '5': 11,
+      '6': '.comment.CommentList',
+      '9': 0,
+      '10': 'CommentListRequest'
+    },
   ],
   '8': [
     {'1': 'payload'},
@@ -66,4 +76,5 @@ final $typed_data.Uint8List requestDescriptor = $convert.base64Decode(
     'CgdSZXF1ZXN0Eh4KBHVzZXIYASABKAsyCi51c2VyLlVzZXJSBHVzZXISEAoDbG5nGAIgASgJUg'
     'NsbmcSDgoCdWEYBCABKAlSAnVhEigKBGtpbmQYBSABKA4yFC5yZXF1ZXN0LlJlcXVlc3RLaW5k'
     'UgRraW5kEjoKDkNvbW1lbnRSZXF1ZXN0GAYgASgLMhAuY29tbWVudC5Db21tZW50SABSDkNvbW'
-    '1lbnRSZXF1ZXN0QgkKB3BheWxvYWQ=');
+    '1lbnRSZXF1ZXN0EkYKEkNvbW1lbnRMaXN0UmVxdWVzdBgHIAEoCzIULmNvbW1lbnQuQ29tbWVu'
+    'dExpc3RIAFISQ29tbWVudExpc3RSZXF1ZXN0QgkKB3BheWxvYWQ=');
