@@ -5,8 +5,9 @@ import "user.proto";
 import "comment.proto";
 
 message Request {
-  user.User user = 1;
-  string lng = 2;
+  string session = 1;
+  user.UserFrom from = 2;
+  string lng = 3;
   string ua = 4;
   RequestKind kind = 5;
 
@@ -18,8 +19,11 @@ message Request {
 
 enum RequestKind {
   NONE = 0;
+
   COMMENT_ADD = 1;
   COMMENT_EDIT = 2;
   COMMENT_DELETE = 3;
   COMMENT_LIST = 4;
+
+  USER_SYNC = 5;
 }

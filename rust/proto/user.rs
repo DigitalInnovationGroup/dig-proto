@@ -3,16 +3,20 @@
 #[derive(rust_macros::FromRequest)]
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct User {
-    #[prost(int64, tag = "1")]
-    pub id: i64,
-    #[prost(string, tag = "2")]
-    pub name: ::prost::alloc::string::String,
+    #[prost(string, tag = "1")]
+    pub id: ::prost::alloc::string::String,
+    #[prost(int64, tag = "2")]
+    pub external_id: i64,
     #[prost(string, tag = "3")]
-    pub avatar: ::prost::alloc::string::String,
+    pub name: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
+    pub avatar: ::prost::alloc::string::String,
+    #[prost(string, tag = "5")]
     pub session: ::prost::alloc::string::String,
-    #[prost(enumeration = "UserFrom", tag = "5")]
+    #[prost(enumeration = "UserFrom", tag = "6")]
     pub from: i32,
+    #[prost(bool, tag = "7")]
+    pub admin: bool,
 }
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(rust_macros::FromRequest)]

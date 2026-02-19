@@ -14,9 +14,9 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'comment.pb.dart' as $1;
+import 'comment.pb.dart' as $0;
 import 'request.pbenum.dart';
-import 'user.pb.dart' as $0;
+import 'user.pbenum.dart' as $1;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
@@ -26,15 +26,17 @@ enum Request_Payload { commentRequest, commentListRequest, notSet }
 
 class Request extends $pb.GeneratedMessage {
   factory Request({
-    $0.User? user,
+    $core.String? session,
+    $1.UserFrom? from,
     $core.String? lng,
     $core.String? ua,
     RequestKind? kind,
-    $1.Comment? commentRequest,
-    $1.CommentList? commentListRequest,
+    $0.Comment? commentRequest,
+    $0.CommentList? commentListRequest,
   }) {
     final result = create();
-    if (user != null) result.user = user;
+    if (session != null) result.session = session;
+    if (from != null) result.from = from;
     if (lng != null) result.lng = lng;
     if (ua != null) result.ua = ua;
     if (kind != null) result.kind = kind;
@@ -63,15 +65,17 @@ class Request extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'request'),
       createEmptyInstance: create)
     ..oo(0, [6, 7])
-    ..aOM<$0.User>(1, _omitFieldNames ? '' : 'user', subBuilder: $0.User.create)
-    ..aOS(2, _omitFieldNames ? '' : 'lng')
+    ..aOS(1, _omitFieldNames ? '' : 'session')
+    ..aE<$1.UserFrom>(2, _omitFieldNames ? '' : 'from',
+        enumValues: $1.UserFrom.values)
+    ..aOS(3, _omitFieldNames ? '' : 'lng')
     ..aOS(4, _omitFieldNames ? '' : 'ua')
     ..aE<RequestKind>(5, _omitFieldNames ? '' : 'kind',
         enumValues: RequestKind.values)
-    ..aOM<$1.Comment>(6, _omitFieldNames ? '' : 'CommentRequest',
-        protoName: 'CommentRequest', subBuilder: $1.Comment.create)
-    ..aOM<$1.CommentList>(7, _omitFieldNames ? '' : 'CommentListRequest',
-        protoName: 'CommentListRequest', subBuilder: $1.CommentList.create)
+    ..aOM<$0.Comment>(6, _omitFieldNames ? '' : 'CommentRequest',
+        protoName: 'CommentRequest', subBuilder: $0.Comment.create)
+    ..aOM<$0.CommentList>(7, _omitFieldNames ? '' : 'CommentListRequest',
+        protoName: 'CommentListRequest', subBuilder: $0.CommentList.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -100,64 +104,71 @@ class Request extends $pb.GeneratedMessage {
   void clearPayload() => $_clearField($_whichOneof(0));
 
   @$pb.TagNumber(1)
-  $0.User get user => $_getN(0);
+  $core.String get session => $_getSZ(0);
   @$pb.TagNumber(1)
-  set user($0.User value) => $_setField(1, value);
+  set session($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasUser() => $_has(0);
+  $core.bool hasSession() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUser() => $_clearField(1);
-  @$pb.TagNumber(1)
-  $0.User ensureUser() => $_ensure(0);
+  void clearSession() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get lng => $_getSZ(1);
+  $1.UserFrom get from => $_getN(1);
   @$pb.TagNumber(2)
-  set lng($core.String value) => $_setString(1, value);
+  set from($1.UserFrom value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasLng() => $_has(1);
+  $core.bool hasFrom() => $_has(1);
   @$pb.TagNumber(2)
-  void clearLng() => $_clearField(2);
+  void clearFrom() => $_clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get lng => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set lng($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasLng() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearLng() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get ua => $_getSZ(2);
+  $core.String get ua => $_getSZ(3);
   @$pb.TagNumber(4)
-  set ua($core.String value) => $_setString(2, value);
+  set ua($core.String value) => $_setString(3, value);
   @$pb.TagNumber(4)
-  $core.bool hasUa() => $_has(2);
+  $core.bool hasUa() => $_has(3);
   @$pb.TagNumber(4)
   void clearUa() => $_clearField(4);
 
   @$pb.TagNumber(5)
-  RequestKind get kind => $_getN(3);
+  RequestKind get kind => $_getN(4);
   @$pb.TagNumber(5)
   set kind(RequestKind value) => $_setField(5, value);
   @$pb.TagNumber(5)
-  $core.bool hasKind() => $_has(3);
+  $core.bool hasKind() => $_has(4);
   @$pb.TagNumber(5)
   void clearKind() => $_clearField(5);
 
   @$pb.TagNumber(6)
-  $1.Comment get commentRequest => $_getN(4);
+  $0.Comment get commentRequest => $_getN(5);
   @$pb.TagNumber(6)
-  set commentRequest($1.Comment value) => $_setField(6, value);
+  set commentRequest($0.Comment value) => $_setField(6, value);
   @$pb.TagNumber(6)
-  $core.bool hasCommentRequest() => $_has(4);
+  $core.bool hasCommentRequest() => $_has(5);
   @$pb.TagNumber(6)
   void clearCommentRequest() => $_clearField(6);
   @$pb.TagNumber(6)
-  $1.Comment ensureCommentRequest() => $_ensure(4);
+  $0.Comment ensureCommentRequest() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $1.CommentList get commentListRequest => $_getN(5);
+  $0.CommentList get commentListRequest => $_getN(6);
   @$pb.TagNumber(7)
-  set commentListRequest($1.CommentList value) => $_setField(7, value);
+  set commentListRequest($0.CommentList value) => $_setField(7, value);
   @$pb.TagNumber(7)
-  $core.bool hasCommentListRequest() => $_has(5);
+  $core.bool hasCommentListRequest() => $_has(6);
   @$pb.TagNumber(7)
   void clearCommentListRequest() => $_clearField(7);
   @$pb.TagNumber(7)
-  $1.CommentList ensureCommentListRequest() => $_ensure(5);
+  $0.CommentList ensureCommentListRequest() => $_ensure(6);
 }
 
 const $core.bool _omitFieldNames =

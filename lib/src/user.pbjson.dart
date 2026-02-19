@@ -32,16 +32,19 @@ final $typed_data.Uint8List userFromDescriptor =
 const User$json = {
   '1': 'User',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 3, '10': 'id'},
-    {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'avatar', '3': 3, '4': 1, '5': 9, '10': 'avatar'},
-    {'1': 'session', '3': 4, '4': 1, '5': 9, '10': 'session'},
-    {'1': 'from', '3': 5, '4': 1, '5': 14, '6': '.user.UserFrom', '10': 'from'},
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'external_id', '3': 2, '4': 1, '5': 3, '10': 'externalId'},
+    {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'avatar', '3': 4, '4': 1, '5': 9, '10': 'avatar'},
+    {'1': 'session', '3': 5, '4': 1, '5': 9, '10': 'session'},
+    {'1': 'from', '3': 6, '4': 1, '5': 14, '6': '.user.UserFrom', '10': 'from'},
+    {'1': 'admin', '3': 7, '4': 1, '5': 8, '10': 'admin'},
   ],
 };
 
 /// Descriptor for `User`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
-    'CgRVc2VyEg4KAmlkGAEgASgDUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEhYKBmF2YXRhchgDIA'
-    'EoCVIGYXZhdGFyEhgKB3Nlc3Npb24YBCABKAlSB3Nlc3Npb24SIgoEZnJvbRgFIAEoDjIOLnVz'
-    'ZXIuVXNlckZyb21SBGZyb20=');
+    'CgRVc2VyEg4KAmlkGAEgASgJUgJpZBIfCgtleHRlcm5hbF9pZBgCIAEoA1IKZXh0ZXJuYWxJZB'
+    'ISCgRuYW1lGAMgASgJUgRuYW1lEhYKBmF2YXRhchgEIAEoCVIGYXZhdGFyEhgKB3Nlc3Npb24Y'
+    'BSABKAlSB3Nlc3Npb24SIgoEZnJvbRgGIAEoDjIOLnVzZXIuVXNlckZyb21SBGZyb20SFAoFYW'
+    'RtaW4YByABKAhSBWFkbWlu');

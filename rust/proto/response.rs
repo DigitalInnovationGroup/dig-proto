@@ -26,8 +26,8 @@ pub mod response {
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Payload {
         #[prost(message, tag = "3")]
-        User(super::super::user::User),
+        UserResponse(super::super::user::User),
         #[prost(message, tag = "4")]
-        CommentList(super::super::comment::CommentList),
+        CommentListResponse(super::super::comment::CommentList),
     }
 }

@@ -3,9 +3,11 @@
 #[derive(rust_macros::FromRequest)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Request {
-    #[prost(message, optional, tag = "1")]
-    pub user: ::core::option::Option<super::user::User>,
-    #[prost(string, tag = "2")]
+    #[prost(string, tag = "1")]
+    pub session: ::prost::alloc::string::String,
+    #[prost(enumeration = "super::user::UserFrom", tag = "2")]
+    pub from: i32,
+    #[prost(string, tag = "3")]
     pub lng: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
     pub ua: ::prost::alloc::string::String,
@@ -36,6 +38,7 @@ pub enum RequestKind {
     CommentEdit = 2,
     CommentDelete = 3,
     CommentList = 4,
+    UserSync = 5,
 }
 impl RequestKind {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -49,6 +52,7 @@ impl RequestKind {
             Self::CommentEdit => "COMMENT_EDIT",
             Self::CommentDelete => "COMMENT_DELETE",
             Self::CommentList => "COMMENT_LIST",
+            Self::UserSync => "USER_SYNC",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -59,6 +63,7 @@ impl RequestKind {
             "COMMENT_EDIT" => Some(Self::CommentEdit),
             "COMMENT_DELETE" => Some(Self::CommentDelete),
             "COMMENT_LIST" => Some(Self::CommentList),
+            "USER_SYNC" => Some(Self::UserSync),
             _ => None,
         }
     }

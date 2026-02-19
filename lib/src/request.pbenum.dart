@@ -25,6 +25,8 @@ class RequestKind extends $pb.ProtobufEnum {
       RequestKind._(3, _omitEnumNames ? '' : 'COMMENT_DELETE');
   static const RequestKind COMMENT_LIST =
       RequestKind._(4, _omitEnumNames ? '' : 'COMMENT_LIST');
+  static const RequestKind USER_SYNC =
+      RequestKind._(5, _omitEnumNames ? '' : 'USER_SYNC');
 
   static const $core.List<RequestKind> values = <RequestKind>[
     NONE,
@@ -32,10 +34,11 @@ class RequestKind extends $pb.ProtobufEnum {
     COMMENT_EDIT,
     COMMENT_DELETE,
     COMMENT_LIST,
+    USER_SYNC,
   ];
 
   static final $core.List<RequestKind?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 4);
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
   static RequestKind? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

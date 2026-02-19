@@ -14,7 +14,7 @@ message Response {
   int32 detail = 2;
 
   oneof payload {
-    user.User user = 3;
-    comment.CommentList comment_list = 4;
+    user.User UserResponse = 3;
+    comment.CommentList CommentListResponse = 4;
   }
 }

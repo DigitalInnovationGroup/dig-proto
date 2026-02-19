@@ -84,20 +84,21 @@ class Ack extends $pb.GeneratedMessage {
   void clearDetail() => $_clearField(2);
 }
 
-enum Response_Payload { user, commentList, notSet }
+enum Response_Payload { userResponse, commentListResponse, notSet }
 
 class Response extends $pb.GeneratedMessage {
   factory Response({
     $core.int? code,
     $core.int? detail,
-    $0.User? user,
-    $1.CommentList? commentList,
+    $0.User? userResponse,
+    $1.CommentList? commentListResponse,
   }) {
     final result = create();
     if (code != null) result.code = code;
     if (detail != null) result.detail = detail;
-    if (user != null) result.user = user;
-    if (commentList != null) result.commentList = commentList;
+    if (userResponse != null) result.userResponse = userResponse;
+    if (commentListResponse != null)
+      result.commentListResponse = commentListResponse;
     return result;
   }
 
@@ -111,8 +112,8 @@ class Response extends $pb.GeneratedMessage {
       create()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, Response_Payload> _Response_PayloadByTag = {
-    3: Response_Payload.user,
-    4: Response_Payload.commentList,
+    3: Response_Payload.userResponse,
+    4: Response_Payload.commentListResponse,
     0: Response_Payload.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
@@ -122,9 +123,10 @@ class Response extends $pb.GeneratedMessage {
     ..oo(0, [3, 4])
     ..aI(1, _omitFieldNames ? '' : 'code')
     ..aI(2, _omitFieldNames ? '' : 'detail')
-    ..aOM<$0.User>(3, _omitFieldNames ? '' : 'user', subBuilder: $0.User.create)
-    ..aOM<$1.CommentList>(4, _omitFieldNames ? '' : 'commentList',
-        subBuilder: $1.CommentList.create)
+    ..aOM<$0.User>(3, _omitFieldNames ? '' : 'UserResponse',
+        protoName: 'UserResponse', subBuilder: $0.User.create)
+    ..aOM<$1.CommentList>(4, _omitFieldNames ? '' : 'CommentListResponse',
+        protoName: 'CommentListResponse', subBuilder: $1.CommentList.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -171,26 +173,26 @@ class Response extends $pb.GeneratedMessage {
   void clearDetail() => $_clearField(2);
 
   @$pb.TagNumber(3)
-  $0.User get user => $_getN(2);
+  $0.User get userResponse => $_getN(2);
   @$pb.TagNumber(3)
-  set user($0.User value) => $_setField(3, value);
+  set userResponse($0.User value) => $_setField(3, value);
   @$pb.TagNumber(3)
-  $core.bool hasUser() => $_has(2);
+  $core.bool hasUserResponse() => $_has(2);
   @$pb.TagNumber(3)
-  void clearUser() => $_clearField(3);
+  void clearUserResponse() => $_clearField(3);
   @$pb.TagNumber(3)
-  $0.User ensureUser() => $_ensure(2);
+  $0.User ensureUserResponse() => $_ensure(2);
 
   @$pb.TagNumber(4)
-  $1.CommentList get commentList => $_getN(3);
+  $1.CommentList get commentListResponse => $_getN(3);
   @$pb.TagNumber(4)
-  set commentList($1.CommentList value) => $_setField(4, value);
+  set commentListResponse($1.CommentList value) => $_setField(4, value);
   @$pb.TagNumber(4)
-  $core.bool hasCommentList() => $_has(3);
+  $core.bool hasCommentListResponse() => $_has(3);
   @$pb.TagNumber(4)
-  void clearCommentList() => $_clearField(4);
+  void clearCommentListResponse() => $_clearField(4);
   @$pb.TagNumber(4)
-  $1.CommentList ensureCommentList() => $_ensure(3);
+  $1.CommentList ensureCommentListResponse() => $_ensure(3);
 }
 
 const $core.bool _omitFieldNames =

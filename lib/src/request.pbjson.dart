@@ -24,20 +24,22 @@ const RequestKind$json = {
     {'1': 'COMMENT_EDIT', '2': 2},
     {'1': 'COMMENT_DELETE', '2': 3},
     {'1': 'COMMENT_LIST', '2': 4},
+    {'1': 'USER_SYNC', '2': 5},
   ],
 };
 
 /// Descriptor for `RequestKind`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List requestKindDescriptor = $convert.base64Decode(
     'CgtSZXF1ZXN0S2luZBIICgROT05FEAASDwoLQ09NTUVOVF9BREQQARIQCgxDT01NRU5UX0VESV'
-    'QQAhISCg5DT01NRU5UX0RFTEVURRADEhAKDENPTU1FTlRfTElTVBAE');
+    'QQAhISCg5DT01NRU5UX0RFTEVURRADEhAKDENPTU1FTlRfTElTVBAEEg0KCVVTRVJfU1lOQxAF');
 
 @$core.Deprecated('Use requestDescriptor instead')
 const Request$json = {
   '1': 'Request',
   '2': [
-    {'1': 'user', '3': 1, '4': 1, '5': 11, '6': '.user.User', '10': 'user'},
-    {'1': 'lng', '3': 2, '4': 1, '5': 9, '10': 'lng'},
+    {'1': 'session', '3': 1, '4': 1, '5': 9, '10': 'session'},
+    {'1': 'from', '3': 2, '4': 1, '5': 14, '6': '.user.UserFrom', '10': 'from'},
+    {'1': 'lng', '3': 3, '4': 1, '5': 9, '10': 'lng'},
     {'1': 'ua', '3': 4, '4': 1, '5': 9, '10': 'ua'},
     {
       '1': 'kind',
@@ -73,8 +75,9 @@ const Request$json = {
 
 /// Descriptor for `Request`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List requestDescriptor = $convert.base64Decode(
-    'CgdSZXF1ZXN0Eh4KBHVzZXIYASABKAsyCi51c2VyLlVzZXJSBHVzZXISEAoDbG5nGAIgASgJUg'
-    'NsbmcSDgoCdWEYBCABKAlSAnVhEigKBGtpbmQYBSABKA4yFC5yZXF1ZXN0LlJlcXVlc3RLaW5k'
-    'UgRraW5kEjoKDkNvbW1lbnRSZXF1ZXN0GAYgASgLMhAuY29tbWVudC5Db21tZW50SABSDkNvbW'
-    '1lbnRSZXF1ZXN0EkYKEkNvbW1lbnRMaXN0UmVxdWVzdBgHIAEoCzIULmNvbW1lbnQuQ29tbWVu'
-    'dExpc3RIAFISQ29tbWVudExpc3RSZXF1ZXN0QgkKB3BheWxvYWQ=');
+    'CgdSZXF1ZXN0EhgKB3Nlc3Npb24YASABKAlSB3Nlc3Npb24SIgoEZnJvbRgCIAEoDjIOLnVzZX'
+    'IuVXNlckZyb21SBGZyb20SEAoDbG5nGAMgASgJUgNsbmcSDgoCdWEYBCABKAlSAnVhEigKBGtp'
+    'bmQYBSABKA4yFC5yZXF1ZXN0LlJlcXVlc3RLaW5kUgRraW5kEjoKDkNvbW1lbnRSZXF1ZXN0GA'
+    'YgASgLMhAuY29tbWVudC5Db21tZW50SABSDkNvbW1lbnRSZXF1ZXN0EkYKEkNvbW1lbnRMaXN0'
+    'UmVxdWVzdBgHIAEoCzIULmNvbW1lbnQuQ29tbWVudExpc3RIAFISQ29tbWVudExpc3RSZXF1ZX'
+    'N0QgkKB3BheWxvYWQ=');

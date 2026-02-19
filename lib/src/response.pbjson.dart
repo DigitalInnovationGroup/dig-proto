@@ -39,22 +39,22 @@ const Response$json = {
     {'1': 'code', '3': 1, '4': 1, '5': 5, '10': 'code'},
     {'1': 'detail', '3': 2, '4': 1, '5': 5, '10': 'detail'},
     {
-      '1': 'user',
+      '1': 'UserResponse',
       '3': 3,
       '4': 1,
       '5': 11,
       '6': '.user.User',
       '9': 0,
-      '10': 'user'
+      '10': 'UserResponse'
     },
     {
-      '1': 'comment_list',
+      '1': 'CommentListResponse',
       '3': 4,
       '4': 1,
       '5': 11,
       '6': '.comment.CommentList',
       '9': 0,
-      '10': 'commentList'
+      '10': 'CommentListResponse'
     },
   ],
   '8': [
@@ -64,6 +64,7 @@ const Response$json = {
 
 /// Descriptor for `Response`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List responseDescriptor = $convert.base64Decode(
-    'CghSZXNwb25zZRISCgRjb2RlGAEgASgFUgRjb2RlEhYKBmRldGFpbBgCIAEoBVIGZGV0YWlsEi'
-    'AKBHVzZXIYAyABKAsyCi51c2VyLlVzZXJIAFIEdXNlchI5Cgxjb21tZW50X2xpc3QYBCABKAsy'
-    'FC5jb21tZW50LkNvbW1lbnRMaXN0SABSC2NvbW1lbnRMaXN0QgkKB3BheWxvYWQ=');
+    'CghSZXNwb25zZRISCgRjb2RlGAEgASgFUgRjb2RlEhYKBmRldGFpbBgCIAEoBVIGZGV0YWlsEj'
+    'AKDFVzZXJSZXNwb25zZRgDIAEoCzIKLnVzZXIuVXNlckgAUgxVc2VyUmVzcG9uc2USSAoTQ29t'
+    'bWVudExpc3RSZXNwb25zZRgEIAEoCzIULmNvbW1lbnQuQ29tbWVudExpc3RIAFITQ29tbWVudE'
+    'xpc3RSZXNwb25zZUIJCgdwYXlsb2Fk');

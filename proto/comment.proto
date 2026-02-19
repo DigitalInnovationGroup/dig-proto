@@ -8,15 +8,19 @@ message Comment {
   string id = 2;
   optional string parent = 3;
   string body = 4;
-  user.User user = 5;
+  string user_id = 5;
   int32 reply_count = 6;
-  Comment replies = 7;
+  repeated Comment replies = 7;
+  int32 created_at = 8;
+  optional int32 updated_at = 9;
 }
 
 message CommentList {
   string resource = 1;
   optional string parent = 2;
   repeated Comment comments = 3;
-  int32 offset = 4;
-  int32 total = 5;
+  map<string, user.User> users = 4;
+  int32 offset = 5;
+  int32 total = 6;
+  int32 limit = 7;
 }

@@ -11,12 +11,16 @@ pub struct Comment {
     pub parent: ::core::option::Option<::prost::alloc::string::String>,
     #[prost(string, tag = "4")]
     pub body: ::prost::alloc::string::String,
-    #[prost(message, optional, tag = "5")]
-    pub user: ::core::option::Option<super::user::User>,
+    #[prost(string, tag = "5")]
+    pub user_id: ::prost::alloc::string::String,
     #[prost(int32, tag = "6")]
     pub reply_count: i32,
-    #[prost(message, optional, boxed, tag = "7")]
-    pub replies: ::core::option::Option<::prost::alloc::boxed::Box<Comment>>,
+    #[prost(message, repeated, tag = "7")]
+    pub replies: ::prost::alloc::vec::Vec<Comment>,
+    #[prost(int32, tag = "8")]
+    pub created_at: i32,
+    #[prost(int32, optional, tag = "9")]
+    pub updated_at: ::core::option::Option<i32>,
 }
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(rust_macros::FromRequest)]
@@ -28,8 +32,15 @@ pub struct CommentList {
     pub parent: ::core::option::Option<::prost::alloc::string::String>,
     #[prost(message, repeated, tag = "3")]
     pub comments: ::prost::alloc::vec::Vec<Comment>,
-    #[prost(int32, tag = "4")]
-    pub offset: i32,
+    #[prost(map = "string, message", tag = "4")]
+    pub users: ::std::collections::HashMap<
+        ::prost::alloc::string::String,
+        super::user::User,
+    >,
     #[prost(int32, tag = "5")]
+    pub offset: i32,
+    #[prost(int32, tag = "6")]
     pub total: i32,
+    #[prost(int32, tag = "7")]
+    pub limit: i32,
 }

@@ -24,18 +24,22 @@ class Comment extends $pb.GeneratedMessage {
     $core.String? id,
     $core.String? parent,
     $core.String? body,
-    $0.User? user,
+    $core.String? userId,
     $core.int? replyCount,
-    Comment? replies,
+    $core.Iterable<Comment>? replies,
+    $core.int? createdAt,
+    $core.int? updatedAt,
   }) {
     final result = create();
     if (resource != null) result.resource = resource;
     if (id != null) result.id = id;
     if (parent != null) result.parent = parent;
     if (body != null) result.body = body;
-    if (user != null) result.user = user;
+    if (userId != null) result.userId = userId;
     if (replyCount != null) result.replyCount = replyCount;
-    if (replies != null) result.replies = replies;
+    if (replies != null) result.replies.addAll(replies);
+    if (createdAt != null) result.createdAt = createdAt;
+    if (updatedAt != null) result.updatedAt = updatedAt;
     return result;
   }
 
@@ -56,10 +60,12 @@ class Comment extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'id')
     ..aOS(3, _omitFieldNames ? '' : 'parent')
     ..aOS(4, _omitFieldNames ? '' : 'body')
-    ..aOM<$0.User>(5, _omitFieldNames ? '' : 'user', subBuilder: $0.User.create)
+    ..aOS(5, _omitFieldNames ? '' : 'userId')
     ..aI(6, _omitFieldNames ? '' : 'replyCount')
-    ..aOM<Comment>(7, _omitFieldNames ? '' : 'replies',
+    ..pPM<Comment>(7, _omitFieldNames ? '' : 'replies',
         subBuilder: Comment.create)
+    ..aI(8, _omitFieldNames ? '' : 'createdAt')
+    ..aI(9, _omitFieldNames ? '' : 'updatedAt')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -117,15 +123,13 @@ class Comment extends $pb.GeneratedMessage {
   void clearBody() => $_clearField(4);
 
   @$pb.TagNumber(5)
-  $0.User get user => $_getN(4);
+  $core.String get userId => $_getSZ(4);
   @$pb.TagNumber(5)
-  set user($0.User value) => $_setField(5, value);
+  set userId($core.String value) => $_setString(4, value);
   @$pb.TagNumber(5)
-  $core.bool hasUser() => $_has(4);
+  $core.bool hasUserId() => $_has(4);
   @$pb.TagNumber(5)
-  void clearUser() => $_clearField(5);
-  @$pb.TagNumber(5)
-  $0.User ensureUser() => $_ensure(4);
+  void clearUserId() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.int get replyCount => $_getIZ(5);
@@ -137,15 +141,25 @@ class Comment extends $pb.GeneratedMessage {
   void clearReplyCount() => $_clearField(6);
 
   @$pb.TagNumber(7)
-  Comment get replies => $_getN(6);
-  @$pb.TagNumber(7)
-  set replies(Comment value) => $_setField(7, value);
-  @$pb.TagNumber(7)
-  $core.bool hasReplies() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearReplies() => $_clearField(7);
-  @$pb.TagNumber(7)
-  Comment ensureReplies() => $_ensure(6);
+  $pb.PbList<Comment> get replies => $_getList(6);
+
+  @$pb.TagNumber(8)
+  $core.int get createdAt => $_getIZ(7);
+  @$pb.TagNumber(8)
+  set createdAt($core.int value) => $_setSignedInt32(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasCreatedAt() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearCreatedAt() => $_clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.int get updatedAt => $_getIZ(8);
+  @$pb.TagNumber(9)
+  set updatedAt($core.int value) => $_setSignedInt32(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasUpdatedAt() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearUpdatedAt() => $_clearField(9);
 }
 
 class CommentList extends $pb.GeneratedMessage {
@@ -153,15 +167,19 @@ class CommentList extends $pb.GeneratedMessage {
     $core.String? resource,
     $core.String? parent,
     $core.Iterable<Comment>? comments,
+    $core.Iterable<$core.MapEntry<$core.String, $0.User>>? users,
     $core.int? offset,
     $core.int? total,
+    $core.int? limit,
   }) {
     final result = create();
     if (resource != null) result.resource = resource;
     if (parent != null) result.parent = parent;
     if (comments != null) result.comments.addAll(comments);
+    if (users != null) result.users.addEntries(users);
     if (offset != null) result.offset = offset;
     if (total != null) result.total = total;
+    if (limit != null) result.limit = limit;
     return result;
   }
 
@@ -182,8 +200,16 @@ class CommentList extends $pb.GeneratedMessage {
     ..aOS(2, _omitFieldNames ? '' : 'parent')
     ..pPM<Comment>(3, _omitFieldNames ? '' : 'comments',
         subBuilder: Comment.create)
-    ..aI(4, _omitFieldNames ? '' : 'offset')
-    ..aI(5, _omitFieldNames ? '' : 'total')
+    ..m<$core.String, $0.User>(4, _omitFieldNames ? '' : 'users',
+        entryClassName: 'CommentList.UsersEntry',
+        keyFieldType: $pb.PbFieldType.OS,
+        valueFieldType: $pb.PbFieldType.OM,
+        valueCreator: $0.User.create,
+        valueDefaultOrMaker: $0.User.getDefault,
+        packageName: const $pb.PackageName('comment'))
+    ..aI(5, _omitFieldNames ? '' : 'offset')
+    ..aI(6, _omitFieldNames ? '' : 'total')
+    ..aI(7, _omitFieldNames ? '' : 'limit')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -227,22 +253,34 @@ class CommentList extends $pb.GeneratedMessage {
   $pb.PbList<Comment> get comments => $_getList(2);
 
   @$pb.TagNumber(4)
-  $core.int get offset => $_getIZ(3);
-  @$pb.TagNumber(4)
-  set offset($core.int value) => $_setSignedInt32(3, value);
-  @$pb.TagNumber(4)
-  $core.bool hasOffset() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearOffset() => $_clearField(4);
+  $pb.PbMap<$core.String, $0.User> get users => $_getMap(3);
 
   @$pb.TagNumber(5)
-  $core.int get total => $_getIZ(4);
+  $core.int get offset => $_getIZ(4);
   @$pb.TagNumber(5)
-  set total($core.int value) => $_setSignedInt32(4, value);
+  set offset($core.int value) => $_setSignedInt32(4, value);
   @$pb.TagNumber(5)
-  $core.bool hasTotal() => $_has(4);
+  $core.bool hasOffset() => $_has(4);
   @$pb.TagNumber(5)
-  void clearTotal() => $_clearField(5);
+  void clearOffset() => $_clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.int get total => $_getIZ(5);
+  @$pb.TagNumber(6)
+  set total($core.int value) => $_setSignedInt32(5, value);
+  @$pb.TagNumber(6)
+  $core.bool hasTotal() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTotal() => $_clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.int get limit => $_getIZ(6);
+  @$pb.TagNumber(7)
+  set limit($core.int value) => $_setSignedInt32(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasLimit() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearLimit() => $_clearField(7);
 }
 
 const $core.bool _omitFieldNames =
